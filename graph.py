@@ -3,7 +3,7 @@ from sys import platform
 import tkinter
 from random import randint
 try:
-    from PIL import ImageTk, Image
+    import PIL
 except Exception:
     pass
 """
@@ -335,8 +335,8 @@ def image(x, y, fileName, anchor=NW, **kwargs):
         if fileName.lower().endswith('.gif'):
             newImage = tkinter.PhotoImage(file=fileName)
         else:
-            im = Image.open(fileName)
-            newImage = ImageTk.PhotoImage(im)
+            im = PIL.Image.open(fileName)
+            newImage = PIL.ImageTk.PhotoImage(im)
     except Exception:
         pass
     _images.append(newImage)
